@@ -13,25 +13,26 @@
         <link rel="stylesheet" href="loginstyle.css">
     </head>
     <body>
-        
-        
+
         <div class="container">
 
-            <div class="heading"><h1>Art <span>Duo</span></h1></div>
-
-            <div class = "login">
-                <form action="get">
-                    Username<br>
-                    <input type="text" name="username" id="username">
-                    <br>
-                    Password <br><input type="password" name="password" id="password">
-                    <br>
-                    <button>Login</button>
-                </form>
-
+            <div class="heading">
+                <h1> Art <span>Duo</span></h1>
             </div>
+
+        <div class="form">
+            <form action="main.html" method="post">
+                <!-- <label for="username"><b>Username</b></label>
+                <BR>
+                <input type="text" placeholder="Enter username here" name="username" required>
+                <br> -->
+                <label for="psw"><b>Password</b></label><BR>
+                <input type="password" placeholder="Enter Password" name="psw" id="mypsw" required>
+                
+                <br>
+                <button onclick="window.location.href = 'main.html'">Login</button>
+            </form>
         </div>
-        
-        <script src="" async defer></script>
+        </div>
     </body>
 </html>
