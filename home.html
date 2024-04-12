@@ -30,8 +30,22 @@
                 <input type="password" placeholder="Enter Password" name="psw" id="mypsw" required>
                 
                 <br>
-                <button onclick="window.location.href = 'main.html'">Login</button>
+                <button onclick="checkPassword(event)">Login</button>
+
             </form>
+            <script>
+                function checkPassword(event){
+                    event.preventDefault();
+                    var inputPassword = document.getElementById('mypsw').value;
+                    if(inputPassword === '1235'){
+                        window.location.href = 'main.html';
+                    }else if (inputPassword === ''){
+                        alert("Enter Password");
+                    }else{
+                        alert("Wrong Password, Try Again");
+                    }
+                }
+            </script>
         </div>
         </div>
     </body>
