@@ -13,36 +13,51 @@
         <div class="container">
             <div class="heading">
                 <h1>Art <span>Duo</span></h1>
+                <form class = "form" id="uploadForm">
+                    <input type="file" id="imageInput" accept="image/*" style="display:none;" onchange="handleImageUpload(event)">
+                    <button type="button" onclick="document.getElementById('imageInput').click()" class="uploadBtn">Upload Image</button>
+                </form>
             </div>
         
 
         <div class="box">
-            <div class="dream">
-                <img src = "kana.jpg" alt="here is image">
-                <img src="kana.jpg" alt="here is image">
-                <img src="kana.jpg" alt="here is image">
-                <img src="kana.jpg" alt="here is image">
-                <img src="kana.jpg" alt="here is image">
-            </div>
+            <div class="dream" id="imageContainer1"></div>
+            <div class="dream" id="imageContainer2"></div>
+            <div class="dream" id="imageContainer3"></div>
+            <script>
+                var currentContainer = 0; // Initialize current container index
+                var containers = document.querySelectorAll('.dream');
 
-            <div class="dream">
-                <img src="Love1.jpg" alt="2nd image here">
-                <img src="kana.jpg" alt="here is image">
-                <img src="kana.jpg" alt="here is image">
-                <img src="kana.jpg" alt="here is image">
-                <img src="kana.jpg" alt="here is image">
-            </div>
+                function handleImageUpload(event) {
+                    var files = event.target.files;
 
-            <div class="dream">
-                <img src="1.jpg" alt="3rd image here">
-                <img src="kana.jpg" alt="here is image">
-                <img src="kana.jpg" alt="here is image">
-                <img src="kana.jpg" alt="here is image">
-                <img src="kana.jpg" alt="here is image">
-            </div>
+                    // Loop through each selected file
+                    for (var i = 0; i < files.length; i++) {
+                        var file = files[i];
+
+                        // Check if a file was selected
+                        if (file) {
+                            var reader = new FileReader();
+                            reader.onload = function (e) {
+                                var imageElement = document.createElement('img');
+                                imageElement.src = e.target.result;
+
+                                // Append the image to the current container
+                                containers[currentContainer].appendChild(imageElement);
+
+                                // Cycle through containers
+                                currentContainer = (currentContainer + 1) % containers.length;
+                                if (currentContainer === 0) {
+                                    currentContainer = 0; // Reset to 0 to upload images again to the first container
+                                }
+                            };
+                            reader.readAsDataURL(file);
+                        }
+                    }
+                }
+            </script>
+
         </div>
        </div> 
-        
-        <script src="" async defer></script>
     </body>
 </html>

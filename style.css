@@ -81,3 +81,17 @@ body{
             width: 100%;
         }
 }
+
+.container .form .uploadBtn{
+    color: rgb(51, 35, 35);
+    background-image: linear-gradient(to top left, #18A5A7, #BFFFC7);
+    height: 40px;
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+    padding:5px;
+    font-weight: bolder;
+    border-width: 5px;
+    border-color: #ffffff;
+    box-shadow: 2.5px 2.5px 2.5px black;
+    border-radius: 10px;
+}
